@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using TMPro;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 public class MouseLook : MonoBehaviour
 {
@@ -8,10 +12,16 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
     float xRotation = 0f;
 
+    private Transform lookingAt;
+    [SerializeField] private GameObject Crosshair;
+    [SerializeField] LayerMask Mask;
+    public RaycastHit hit;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Crosshair = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -26,4 +36,22 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
+    
+    void FixedUpdate()
+    {
+        Debug.DrawRay(transform.TransformDirection(Vector3.forward), transform.forward, Color.red);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5, Mask))
+        {
+            lookingAt = hit.transform;
+            lookingAt.GetComponent<Outline>().enabled = true;
+            Crosshair.transform.GetChild(1).GetComponent<TMP_Text>().text = lookingAt.name;
+            Crosshair.SetActive(true);
+
+        }
+        else if (hit.transform != lookingAt)
+        {
+            lookingAt.GetComponent<Outline>().enabled = false;
+            Crosshair.SetActive(false);
+        }
+    }    
 }
