@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer scenes/Start.unity
+    guid: 52b7b62315da39d4785317e2970731f5
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer scenes/JoinCreateRoom.unity
+    guid: 52558a90c43e6d948abca5d5d099785b
   m_configObjects: {}
