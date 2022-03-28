@@ -11,6 +11,8 @@ public class OpenDoor : MonoBehaviour
     private Animation openDoor1;
     private TMPro.TMP_Text Texts;
     private GameObject Text;
+    private AudioSource Audio1;
+    private AudioSource Audio2;
 
     private bool Ran = false;
     
@@ -18,11 +20,16 @@ public class OpenDoor : MonoBehaviour
     void Start()
     {
         Text = GameObject.Find("Text1");
+        Texts = Text.GetComponent<TextMeshPro>();
+        
         Door = GameObject.Find("Door");
         Door1 = GameObject.Find("Door1");
+        
         openDoor = Door.GetComponent<Animation>();
         openDoor1 = Door1.GetComponent<Animation>();
-        Texts = Text.GetComponent<TextMeshPro>();
+
+        Audio1 = Door.GetComponent<AudioSource>();
+        Audio2 = Door1.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +39,10 @@ public class OpenDoor : MonoBehaviour
         {
             openDoor.Play("WallUp");
             openDoor1.Play("WallUp");
+
+            Audio1.Play();
+            Audio2.Play();
+            
             Ran = true;
         }
     }
