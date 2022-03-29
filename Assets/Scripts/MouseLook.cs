@@ -46,16 +46,13 @@ public class MouseLook : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.TransformDirection(Vector3.forward));
         Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.green);
-        if (Physics.Raycast(ray, out hit, 5))
+        if (Physics.Raycast(ray, out hit, 5, Mask))
         {
-            if (hit.transform.gameObject.CompareTag("Highlight"))
-            {
-                print("HEy3");
-                lookingAt = hit.transform;
-                lookingAt.GetComponent<Outline>().enabled = true;
-                //Crosshair.transform.GetChild(1).GetComponent<TMP_Text>().text = lookingAt.name;
-                //Crosshair.SetActive(true);
-            }
+            print("HEy3");
+            lookingAt = hit.transform;
+            lookingAt.GetComponent<Outline>().enabled = true;
+            //Crosshair.transform.GetChild(1).GetComponent<TMP_Text>().text = lookingAt.name;
+            //Crosshair.SetActive(true);
         }
         else if (hit.transform != lookingAt)
         {
