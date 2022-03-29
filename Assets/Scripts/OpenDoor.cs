@@ -46,6 +46,7 @@ public class OpenDoor : MonoBehaviour
         }
         else if (stream.IsReading)
         {
+            Texts.text = (string) stream.ReceiveNext();
             Texts1.text = (string) stream.ReceiveNext();
         }
     }
