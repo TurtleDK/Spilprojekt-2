@@ -17,20 +17,20 @@ public class JoinedRoom : MonoBehaviour
     {
         if (!playerSpawned)
         {
-            for (int i = 0; i < Hus2.transform.childCount; i++)
+            for (int i = 0; i < Hus1.transform.childCount; i++)
             {
                 if (Hus1.transform.GetChild(i).name.Contains(playerPrefab.name))
                 {
-                    player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint1.transform.position, spawnPoint1.transform.rotation);
-                    player.transform.name = "FirstPersonPlayerHus1";
+                    player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint2.transform.position, spawnPoint2.transform.rotation);
+                    player.transform.parent = Hus2.transform;
                     player.transform.GetChild(1).gameObject.SetActive(true);
                     playerSpawned = true;
                 }
             }
             if (!playerSpawned)
             {
-                player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint2.transform.position, spawnPoint2.transform.rotation);
-                player.transform.name = "FirstPersonPlayerHus2";
+                player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint1.transform.position, spawnPoint1.transform.rotation);
+                player.transform.parent = Hus1.transform;
                 player.transform.GetChild(1).gameObject.SetActive(true);
                 playerSpawned = true;
             }
@@ -43,7 +43,7 @@ public class JoinedRoom : MonoBehaviour
                 if (Hus2.transform.GetChild(i).name.Contains(playerPrefab.name))
                 {
                     player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint1.transform.position, spawnPoint1.transform.rotation);
-                    player.transform.name = "FirstPersonPlayerHus1";
+                    player.transform.parent = Hus1.transform;
                     player.transform.GetChild(1).gameObject.SetActive(true);
                     playerSpawned = true;
                 }
@@ -51,7 +51,7 @@ public class JoinedRoom : MonoBehaviour
             if (!playerSpawned)
             {
                 player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint2.transform.position, spawnPoint2.transform.rotation);
-                player.transform.name = "FirstPersonPlayerHus2";
+                player.transform.parent = Hus2.transform;
                 player.transform.GetChild(1).gameObject.SetActive(true);
                 playerSpawned = true;
             }
