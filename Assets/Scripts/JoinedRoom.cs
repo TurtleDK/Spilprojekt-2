@@ -26,6 +26,14 @@ public class JoinedRoom : MonoBehaviour
                     playerSpawned = true;
                 }
             }
+
+            if (!playerSpawned)
+            {
+                player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                player.transform.parent = Hus1.transform;
+                player.transform.GetChild(1).gameObject.SetActive(true);
+                playerSpawned = true;
+            }
         }
 
         if (!playerSpawned)
@@ -39,6 +47,13 @@ public class JoinedRoom : MonoBehaviour
                     player.transform.GetChild(1).gameObject.SetActive(true);
                     playerSpawned = true;
                 }
+            }
+            if (!playerSpawned)
+            {
+                player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                player.transform.parent = Hus2.transform;
+                player.transform.GetChild(1).gameObject.SetActive(true);
+                playerSpawned = true;
             }
         }
         
