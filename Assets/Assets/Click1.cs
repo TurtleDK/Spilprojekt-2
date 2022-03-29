@@ -13,9 +13,13 @@ public class Click1 : MonoBehaviour
     private GameObject Text;
     private TMPro.TMP_Text Texts;
     private string PreviousText;
+    [SerializeField] private string Tal;
     
     private GameObject Text1;
     private TMPro.TMP_Text Texts1;
+
+    private Outline Outline;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,8 @@ public class Click1 : MonoBehaviour
         
         Text1 = GameObject.Find("Text2");
         Texts1 = Text1.GetComponent<TextMeshPro>();
+
+        Outline = gameObject.GetComponent<Outline>();
     }
 
     // Update is called once per frame
@@ -33,13 +39,13 @@ public class Click1 : MonoBehaviour
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (Input.GetKeyDown(KeyCode.E) && distance < 4)
+        if (Input.GetKeyDown(KeyCode.E) && distance < 4 && Outline.enabled == true)
         {
             PreviousText = Texts.text;
-            Texts.text = PreviousText + "4";
+            Texts.text = PreviousText + Tal;
             
             PreviousText = Texts1.text;
-            Texts1.text = PreviousText + "4";
+            Texts1.text = PreviousText + Tal;
         }
     }
 }
