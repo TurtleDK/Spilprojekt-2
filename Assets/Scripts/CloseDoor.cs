@@ -3,19 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseDoor1 : MonoBehaviour
+public class CloseDoor : MonoBehaviour
 {
-    GameObject Door;
+    
     private Animation closeDoor;
     private AudioSource Audio1;
-    public AnimationClip[] clips;
 
+    [SerializeField] private GameObject Door;
 
     // Start is called before the first frame update
     void Start()
     {
-        Door = GameObject.Find("Door");
-        
+
         closeDoor = Door.GetComponent<Animation>();
         
         Audio1 = gameObject.GetComponent<AudioSource>();
@@ -24,9 +23,9 @@ public class CloseDoor1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        closeDoor.clip = clips[1];
         Audio1.Play();
         closeDoor.Play("WallDown");
+        
     }
 }
   
