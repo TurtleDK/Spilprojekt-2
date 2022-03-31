@@ -37,7 +37,8 @@ public class OpenDoor : MonoBehaviour
         Audio1 = Door.GetComponent<AudioSource>();
         Audio2 = Door1.GetComponent<AudioSource>();
     }
-
+    
+    [PunRPC]
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class JoinCreateServer : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField createInput;
     [SerializeField] TMP_InputField joinInput;
 
+    private void Start()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
+
     public void CreateRoom()
     {
         PhotonNetwork.CreateRoom(createInput.text);
@@ -22,7 +28,7 @@ public class JoinCreateServer : MonoBehaviourPunCallbacks
         if (PhotonNetwork.PlayerList.Length > 4)
         {
             PhotonNetwork.LeaveRoom();
-            SceneManager.LoadScene(1);
+            PhotonNetwork.LoadLevel(2);
         }
     }
 
