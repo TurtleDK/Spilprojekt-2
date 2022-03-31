@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class JoinedRoom : MonoBehaviour
 {
@@ -32,7 +33,11 @@ public class JoinedRoom : MonoBehaviour
             playerSpawned = true;
         }
     }
+    
+    
 }
+
+
 
 /*
 if (!playerSpawned)
@@ -78,3 +83,4 @@ if (!playerSpawned)
 }
 }
 */ 
+

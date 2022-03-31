@@ -27,6 +27,7 @@ public class CloseDoor1 : MonoBehaviour
         closeDoor.clip = clips[1];
         Audio1.Play();
         closeDoor.Play("WallDown");
+        Destroy(gameObject);
     }
 }
   

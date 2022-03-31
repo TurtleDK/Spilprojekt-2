@@ -19,7 +19,6 @@ public class CloseDoor : MonoBehaviour
         closeDoor2 = Door1.GetComponent<Animation>();
         
         Audio2 = gameObject.GetComponent<AudioSource>();
-        
     }
 
     private void OnTriggerEnter(Collider other)

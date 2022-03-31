@@ -3657,7 +3657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51f610411211c94c85e6cbd4774a798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1399686511}
+  spawnPoint1: {fileID: 0}
+  spawnPoint2: {fileID: 0}
   playerPrefab: {fileID: 13749563585601449, guid: cb70fed06613bed4babe268e2533a99b, type: 3}
   Hus1: {fileID: 0}
   Hus2: {fileID: 0}
@@ -6239,6 +6240,10 @@ PrefabInstance:
     - target: {fileID: 13749563585601452, guid: cb70fed06613bed4babe268e2533a99b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085164522240363426, guid: cb70fed06613bed4babe268e2533a99b, type: 3}
+      propertyPath: sceneViewId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb70fed06613bed4babe268e2533a99b, type: 3}
