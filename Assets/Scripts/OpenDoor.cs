@@ -18,6 +18,7 @@ public class OpenDoor : MonoBehaviourPun
     private AudioSource Audio2;
 
     private bool Ran = false;
+    private string textField;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class OpenDoor : MonoBehaviourPun
         Text = GameObject.Find("Text1");
         Texts = Text.GetComponent<TextMeshPro>();
 
+        textField = Texts.text;
+        
         Text1 = GameObject.Find("Text2");
         Texts1 = Text1.GetComponent<TextMeshPro>();
         
@@ -46,7 +49,12 @@ public class OpenDoor : MonoBehaviourPun
 
     void Update()
     {
-        photonView.RPC("UpdateText", RpcTarget.OthersBuffered, Texts.text);
+        if (textField != Texts.text)
+        {
+            textField = Texts.text;
+            photonView.RPC("UpdateText", RpcTarget.OthersBuffered, textField);
+        }
+        
         if (Texts.text == "1432" && Ran == false)
         {
             openDoor.Play("WallUp");
