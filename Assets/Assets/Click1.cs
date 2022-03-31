@@ -39,7 +39,7 @@ public class Click1 : MonoBehaviour
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (Input.GetKeyDown(KeyCode.E) && distance < 4 && Outline.enabled == true)
+        if (Input.GetKeyDown(KeyCode.E) && distance < 4)
         {
             PreviousText = Texts.text;
             Texts.text = PreviousText + Tal;

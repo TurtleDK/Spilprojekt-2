@@ -6245,6 +6245,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7939231468212009488, guid: cb70fed06613bed4babe268e2533a99b, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb70fed06613bed4babe268e2533a99b, type: 3}
 --- !u!1 &562693454
