@@ -41,7 +41,7 @@ public class OpenDoor : MonoBehaviourPun
     [PunRPC]
     void UpdateText(string a)
     {
-        Debug.Log(string.Format("Text: {0}", a));
+        Texts1.text = a;
     }
 
     void Update()
