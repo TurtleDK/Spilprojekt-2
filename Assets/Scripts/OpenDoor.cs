@@ -4,7 +4,7 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour
+public class OpenDoor : MonoBehaviourPun
 {
     GameObject Door;
     GameObject Door1;
@@ -37,24 +37,16 @@ public class OpenDoor : MonoBehaviour
         Audio1 = Door.GetComponent<AudioSource>();
         Audio2 = Door1.GetComponent<AudioSource>();
     }
-    
+
     [PunRPC]
-    private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    void UpdateText(string a)
     {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(Texts.text);
-        }
-        else if (stream.IsReading)
-        {
-            Texts.text = (string) stream.ReceiveNext();
-            Texts1.text = (string) stream.ReceiveNext();
-        }
+        Debug.Log(string.Format("Text: {0}", a));
     }
 
-    // Update is called once per frame
     void Update()
     {
+        photonView.RPC("UpdateText", RpcTarget.OthersBuffered, Texts.text);
         if (Texts.text == "1432" && Ran == false)
         {
             openDoor.Play("WallUp");
