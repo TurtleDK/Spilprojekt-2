@@ -16,6 +16,7 @@ public class JoinedRoom : MonoBehaviour
 
     void Start()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;
         if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
             player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint1.transform.position,
