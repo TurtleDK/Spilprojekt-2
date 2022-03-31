@@ -45,6 +45,7 @@ public class OpenDoor : MonoBehaviourPun
     void UpdateText(string a)
     {
         Texts1.text = a;
+        Texts.text = a;
     }
 
     void Update()
