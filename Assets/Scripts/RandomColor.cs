@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class RandomColor : MonoBehaviour
+using Photon.Pun;
+
+public class RandomColor : MonoBehaviourPun
 {
     // Start is called before the first frame update
 
@@ -16,22 +18,35 @@ public class RandomColor : MonoBehaviour
     private int numberCode;
     private int RandomTal;
     private Color Color;
+    
+    [PunRPC]
+    void ShareCode(string a)
+    {
+        Code = a;
+    }
 
     void Start()
     {
-        for (int i = 0; i < 4; i++)
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
-            numberCode = Random.Range(0, Codes.Count);
-            RandomTal = Random.Range(0, Colors.Count);  
+            for (int i = 0; i < 4; i++)
+            {
+                numberCode = Random.Range(0, Codes.Count);
+                RandomTal = Random.Range(0, Colors.Count);  
 
-            Code += Codes[numberCode];
-            Color = Colors[RandomTal];
+                Code += Codes[numberCode];
+                Color = Colors[RandomTal];
 
-            ColorBricks[i].GetComponent<TMP_Text>().color = Color;
-            StickyNotes[Codes[numberCode]-1].color = Color;
+                ColorBricks[i].GetComponent<TMP_Text>().color = Color;
+                StickyNotes[Codes[numberCode]-1].color = Color;
             
-            Colors.RemoveAt(RandomTal);
-            Codes.RemoveAt(numberCode);
+                Colors.RemoveAt(RandomTal);
+                Codes.RemoveAt(numberCode);
+            }
+            
+            photonView.RPC("ShareCode", RpcTarget.OthersBuffered, Code);
         }
     }
+    
+    
 }

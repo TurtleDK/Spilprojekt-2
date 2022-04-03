@@ -28,7 +28,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Crosshair = GameObject.Find("Crosshair");
+        Crosshair = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
         SettingsPanel = GameObject.Find("Settings");
         
         /*
