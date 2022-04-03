@@ -103,6 +103,8 @@ MonoBehaviour:
   Mask:
     serializedVersion: 2
     m_Bits: 8
+  SettingsPanel: {fileID: 0}
+  settingOpened: 0
 --- !u!114 &8071151577892190211
 MonoBehaviour:
   m_ObjectHideFlags: 0

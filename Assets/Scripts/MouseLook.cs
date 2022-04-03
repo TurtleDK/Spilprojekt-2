@@ -4,6 +4,8 @@ using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -16,30 +18,44 @@ public class MouseLook : MonoBehaviour
     private Transform lookingAt;
     [SerializeField] private GameObject Crosshair;
     [SerializeField] LayerMask Mask;
+    [SerializeField] private GameObject SettingsPanel;
+    private Slider sensSlider;
+
+    public bool settingOpened = false;
     
     public RaycastHit hit;
     
-
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Crosshair = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
+        Crosshair = GameObject.Find("Crosshair");
+        SettingsPanel = GameObject.Find("Settings");
+        
+        /*
+        for (int i = 0; i < SettingsPanel.transform.GetChild(0).childCount; i++)
+        {
+            if (SettingsPanel.transform.GetChild(0).GetChild(i).name == "Sensitivity")
+            {
+                sensSlider = SettingsPanel.transform.GetChild(0).GetChild(i).gameObject.GetComponent<Slider>();
+                break;
+            }
+        }
+        */
     }
-
-    // Update is called once per framez
+    
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
+        if (settingOpened == false)
+        {
+            xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
-        
-        
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
     }
 
     void FixedUpdate()

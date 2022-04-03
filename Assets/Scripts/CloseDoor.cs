@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CloseDoor : MonoBehaviour
 {
-    
+    public float soundVolume;
     private Animation closeDoor;
     private AudioSource Audio1;
 
@@ -23,6 +23,7 @@ public class CloseDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Audio1.volume = soundVolume;
         Audio1.Play();
         closeDoor.Play("WallDown");
         

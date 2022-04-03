@@ -16,7 +16,10 @@ public class OpenDoor : MonoBehaviourPun
     private GameObject Text1;
     private AudioSource Audio1;
     private AudioSource Audio2;
+    private RandomColor _randomColor;
 
+    public float soundVolume = 1f;
+    
     private bool Ran = false;
     private string textField;
     
@@ -39,6 +42,8 @@ public class OpenDoor : MonoBehaviourPun
 
         Audio1 = Door.GetComponent<AudioSource>();
         Audio2 = Door1.GetComponent<AudioSource>();
+
+        _randomColor = FindObjectOfType<RandomColor>();
     }
 
     [PunRPC]
@@ -56,12 +61,14 @@ public class OpenDoor : MonoBehaviourPun
             photonView.RPC("UpdateText", RpcTarget.OthersBuffered, textField);
         }
         
-        if (Texts.text == "1432" && Ran == false)
+        if (Texts.text == _randomColor.Code && Ran == false)
         {
             openDoor.Play("WallUp");
             openDoor1.Play("WallUp");
 
+            Audio1.volume = soundVolume;
             Audio1.Play();
+            Audio2.volume = soundVolume;
             Audio2.Play();
             
             Ran = true;
