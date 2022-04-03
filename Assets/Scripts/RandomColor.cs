@@ -24,10 +24,10 @@ public class RandomColor : MonoBehaviourPun
     private Color Color;
 
     [PunRPC]
-    void ShareCode(string a, List<Color> List)
+    void ShareCode(string a, List<Color> noteColor)
     {
         Code = a;
-        ColorsList = List;
+        ColorsList = noteColor;
     }
 
     void Start()
