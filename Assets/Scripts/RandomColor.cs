@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
+using Random = UnityEngine.Random;
 
 public class RandomColor : MonoBehaviourPun
 {
@@ -14,15 +16,18 @@ public class RandomColor : MonoBehaviourPun
     [SerializeField] private TextMeshPro[] ColorBricks;
     [SerializeField] private Material[] StickyNotes; 
     [SerializeField] public string Code;
+    private List<Color> ColorsList = new List<Color>();
 
     private int numberCode;
     private int RandomTal;
+    private int CodeInt;
     private Color Color;
-    
+
     [PunRPC]
-    void ShareCode(string a)
+    void ShareCode(string a, List<Color> List)
     {
         Code = a;
+        ColorsList = List;
     }
 
     void Start()
@@ -39,12 +44,22 @@ public class RandomColor : MonoBehaviourPun
 
                 ColorBricks[i].GetComponent<TMP_Text>().color = Color;
                 StickyNotes[Codes[numberCode]-1].color = Color;
+                
+                ColorsList.Add(Color);
             
                 Colors.RemoveAt(RandomTal);
                 Codes.RemoveAt(numberCode);
             }
             
-            photonView.RPC("ShareCode", RpcTarget.OthersBuffered, Code);
+            photonView.RPC("ShareCode", RpcTarget.OthersBuffered, Code, ColorsList);
+        }
+        else
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                int.TryParse(Code[i].ToString(), out CodeInt);
+                StickyNotes[CodeInt].color = ColorsList[i];
+            }
         }
     }
     
