@@ -53,6 +53,8 @@ public class OpenDoor : MonoBehaviourPun
         Texts.text = a;
     }
 
+    private float waitedTime;
+    
     void Update()
     {
         if (textField != Texts.text)
@@ -60,9 +62,13 @@ public class OpenDoor : MonoBehaviourPun
             textField = Texts.text;
             photonView.RPC("UpdateText", RpcTarget.OthersBuffered, textField);
         }
+
+        waitedTime += Time.deltaTime;
         
-        if (Texts.text == _randomColor.Code && Ran == false)
+        if (Texts.text == _randomColor.Code && waitedTime > 1f && Ran == false)
         {
+            print("I opened it");
+            print(Texts.text);
             openDoor.Play("WallUp");
             openDoor1.Play("WallUp");
 

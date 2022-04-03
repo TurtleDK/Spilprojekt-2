@@ -62,11 +62,17 @@ public class RandomColor : MonoBehaviourPun
         }
         else
         {
-            for (int i = 0; i < 4; i++)
-            {
-                int.TryParse(Code[i].ToString(), out CodeInt);
-                StickyNotes[CodeInt].color = ColorsList[i];
-            }
+            StartCoroutine(SetColors());
+        }
+    }
+
+    IEnumerator SetColors()
+    {
+        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < 4; i++)
+        {
+            int.TryParse(Code[i].ToString(), out CodeInt);
+            StickyNotes[CodeInt-1].color = ColorsList[i];
         }
     }
     
