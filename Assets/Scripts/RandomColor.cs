@@ -11,18 +11,18 @@ public class RandomColor : MonoBehaviourPun
 {
     // Start is called before the first frame update
 
-    private List<Color> Colors = new List<Color>(){new Color(255, 255, 0), new Color(255, 0, 0), new Color(0, 0, 255), new Color(0, 255,255)};
+    private List<Color32> Colors = new List<Color32>(){new Color32(164, 164, 10, 255), new Color32(164, 0, 0, 255), new Color32(0, 0, 164, 255), new Color32(10, 164,164, 255)};
     private List<int> Codes = new List<int>(){1, 2, 3, 4};
 
     [SerializeField] private TextMeshPro[] ColorBricks;
     [SerializeField] private Material[] StickyNotes; 
     [SerializeField] public string Code;
-    private Color[] ColorsList = new Color[4];
+    private Color32[] ColorsList = new Color32[4];
 
     private int numberCode;
     private int RandomTal;
     private int CodeInt;
-    private Color _color;
+    private Color32 _color;
 
     [PunRPC]
     void ShareCode(string a, Vector3 color1, Vector3 color2, Vector3 color3, Vector3 color4)
