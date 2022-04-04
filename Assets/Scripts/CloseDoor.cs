@@ -25,8 +25,8 @@ public class CloseDoor : MonoBehaviour
     {
         Audio1.volume = soundVolume;
         Audio1.Play();
-        closeDoor.Play("WallDown");
-        
+        //closeDoor.Play("WallDown");
+        closeDoor.Play();
     }
 }
   
