@@ -3665,8 +3665,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279900698
-  m_fontColor: {r: 0.103773594, g: 0.10034711, b: 0.10034711, a: 1}
+    rgba: 4285493103
+  m_fontColor: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4152,8 +4152,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285493103
+  m_fontColor: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4658,6 +4658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 488568273}
   - component: {fileID: 488568274}
+  - component: {fileID: 488568275}
   m_Layer: 0
   m_Name: Point Light (1)
   m_TagString: Untagged
@@ -4741,6 +4742,25 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &488568275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488568272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb1264ee3dd14748a19a5c52c98dfc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flicker: 1
+  startIntensity: 1
+  minIntensity: 0
+  maxIntensity: 1
+  smoothing: 36
+  fullFlicker: 1
+  fullFlickerBias: 0.1
 --- !u!1 &494447731
 GameObject:
   m_ObjectHideFlags: 0
@@ -11254,8 +11274,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285493103
+  m_fontColor: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -17966,22 +17986,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 85052aef855bc694a93fc31e0a43e872, type: 2}
---- !u!54 &1406161407
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406161405}
-  serializedVersion: 2
-  m_Mass: 0.03
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1407391248
 GameObject:
   m_ObjectHideFlags: 0
@@ -19677,22 +19681,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 85052aef855bc694a93fc31e0a43e872, type: 2}
---- !u!54 &1488119189
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488119187}
-  serializedVersion: 2
-  m_Mass: 0.03
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1507049710
 GameObject:
   m_ObjectHideFlags: 0
@@ -21006,6 +20994,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1579922017}
   - component: {fileID: 1579922018}
+  - component: {fileID: 1579922019}
+  - component: {fileID: 1579922020}
   m_Layer: 0
   m_Name: Point Light (1)
   m_TagString: Untagged
@@ -21089,6 +21079,44 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1579922019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579922016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb1264ee3dd14748a19a5c52c98dfc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flicker: 1
+  startIntensity: 1
+  minIntensity: 0
+  maxIntensity: 1
+  smoothing: 36
+  fullFlicker: 1
+  fullFlickerBias: 0.1
+--- !u!114 &1579922020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579922016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb1264ee3dd14748a19a5c52c98dfc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flicker: 0
+  startIntensity: 1
+  minIntensity: 0
+  maxIntensity: 1
+  smoothing: 5
+  fullFlicker: 0
+  fullFlickerBias: 0
 --- !u!1 &1595495306
 GameObject:
   m_ObjectHideFlags: 0
@@ -23718,7 +23746,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1702479705
 AudioSource:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -23728,7 +23756,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e091c9df30d4b3746bf57881cdde96c4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -23736,10 +23764,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 0
+  MaxDistance: 5
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -23772,7 +23800,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
