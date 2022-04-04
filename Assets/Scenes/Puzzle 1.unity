@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.12
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1818117aa9561ba4288f24addfdd46a9, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -4286,7 +4286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475070169}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52.15, y: 27.69044, z: -24.07}
+  m_LocalPosition: {x: -52.15, y: 32.11, z: -24.07}
   m_LocalScale: {x: 9.110775, y: 4.1532, z: 7.672225}
   m_Children: []
   m_Father: {fileID: 871063250}
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce3a217f209c3e41bcc5f36db7fe35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolume: 0
+  soundVolume: 0.5
   Door: {fileID: 1702479703}
 --- !u!82 &475070172
 AudioSource:
@@ -4318,7 +4318,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 500a8c517be52be448bd53d0c74a467b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11555,7 +11555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913515115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52, y: 27.69044, z: -24.089996}
+  m_LocalPosition: {x: -52, y: 31.96, z: -24.089996}
   m_LocalScale: {x: 9.075572, y: 4.1532, z: 7.672225}
   m_Children: []
   m_Father: {fileID: 650730270}
@@ -11573,7 +11573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce3a217f209c3e41bcc5f36db7fe35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolume: 0
+  soundVolume: 0.5
   Door: {fileID: 2084319859}
 --- !u!82 &913515118
 AudioSource:
@@ -11587,7 +11587,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 500a8c517be52be448bd53d0c74a467b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12390,7 +12390,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 360627344}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 200
   m_WholeNumbers: 0
   m_Value: 100
   m_OnValueChanged:
@@ -13290,7 +13290,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -23728,7 +23728,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e091c9df30d4b3746bf57881cdde96c4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -25583,8 +25583,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285493103
+  m_fontColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -27055,7 +27055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c796ec69be35284a88ecb31efb756f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolume: 1
+  soundVolume: 0.5
 --- !u!114 &1993478042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28618,7 +28618,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e091c9df30d4b3746bf57881cdde96c4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
