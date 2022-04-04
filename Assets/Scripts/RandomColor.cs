@@ -17,7 +17,7 @@ public class RandomColor : MonoBehaviourPun
     [SerializeField] private TextMeshPro[] ColorBricks;
     [SerializeField] private Material[] StickyNotes; 
     [SerializeField] public string Code;
-    private Color32[] ColorsList = new Color32[4];
+    private Color[] ColorsList = new Color[4];
 
     private int numberCode;
     private int RandomTal;
