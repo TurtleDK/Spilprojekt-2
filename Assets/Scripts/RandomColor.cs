@@ -11,7 +11,7 @@ public class RandomColor : MonoBehaviourPun
 {
     // Start is called before the first frame update
 
-    private List<Color32> Colors = new List<Color32>(){new Color32(164, 164, 10, 255), new Color32(164, 0, 0, 255), new Color32(0, 0, 164, 255), new Color32(10, 164,164, 255)};
+    private List<Color32> Colors = new List<Color32>(){new Color32(190, 190, 10, 255), new Color32(164, 0, 0, 255), new Color32(0, 0, 164, 255), new Color32(10, 164,164, 255)};
     private List<int> Codes = new List<int>(){1, 2, 3, 4};
 
     [SerializeField] private TextMeshPro[] ColorBricks;
