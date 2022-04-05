@@ -70,7 +70,7 @@ public class LightFlickerEffect : MonoBehaviour
         smoothQueue = new Queue<float>(smoothing);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         maxIntensity = startIntensity;
 
