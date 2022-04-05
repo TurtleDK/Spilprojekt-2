@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
+using Photon.Pun;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CloseDoor : MonoBehaviour
 {
     public float soundVolume;
     private Animation closeDoor;
     private AudioSource Audio1;
+    [SerializeField] private Image BlackScreen;
 
     [SerializeField] private GameObject Door;
 
@@ -23,10 +27,26 @@ public class CloseDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Audio1.volume = soundVolume;
-        Audio1.Play();
-        //closeDoor.Play("WallDown");
-        closeDoor.Play();
+        if (other.transform.CompareTag("Player"))
+        {
+            Audio1.volume = soundVolume;
+            Audio1.Play();
+            closeDoor.Play();
+            StartCoroutine(StartNextLevel());
+        }
+    }
+
+    IEnumerator StartNextLevel()
+    {
+        yield return new WaitForSeconds(2f);
+        Color tempColor = BlackScreen.color;
+        while (BlackScreen.color.a != 1.0f)
+        {
+            yield return new WaitForSeconds(0.01f);
+            tempColor.a += 0.01f;
+            BlackScreen.color = tempColor;
+        }
+        PhotonNetwork.LoadLevel(3);
     }
 }
   
