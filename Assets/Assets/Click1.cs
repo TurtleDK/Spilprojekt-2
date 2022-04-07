@@ -19,6 +19,8 @@ public class Click1 : MonoBehaviour
     private TMPro.TMP_Text Texts1;
 
     private Outline Outline;
+    private AudioSource Audio1;
+    public float soundVolume;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,9 @@ public class Click1 : MonoBehaviour
         Texts1 = Text1.GetComponent<TextMeshPro>();
 
         Outline = gameObject.GetComponent<Outline>();
+        Audio1 = gameObject.GetComponent<AudioSource>();
+        
+        Audio1.volume = soundVolume;
     }
 
     // Update is called once per frame
@@ -41,6 +46,8 @@ public class Click1 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && Outline.enabled == true)
         {
+            Audio1.Play();
+            
             PreviousText = Texts.text;
             Texts.text = PreviousText + Tal;
             
