@@ -16,13 +16,15 @@ public class Movement : MonoBehaviourPun
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    private Rigidbody rb;
+
     bool isGrounded;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -41,16 +43,20 @@ public class Movement : MonoBehaviourPun
             float z = Input.GetAxis("Vertical");
 
             Vector3 move = transform.right * x + transform.forward * z;
-            controller.Move(move * speed * Time.deltaTime);
+            move *= speed;
+            //controller.Move(move * speed );
 
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             }
 
+            velocity.x = move.x;
+            velocity.z = move.z;
+
             velocity.y += gravity * Time.deltaTime;
 
-            controller.Move(velocity * Time.deltaTime);
+            rb.velocity = velocity;
         }
     }
 }
