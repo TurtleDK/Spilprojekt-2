@@ -18,7 +18,6 @@ public class Dragging : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //rb.interpolation = RigidbodyInterpolation.Interpolate;
     }
 
     void OnMouseDown()
@@ -37,7 +36,7 @@ public class Dragging : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         isDragging = false;
         rb.useGravity = true;
-        //gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        rb.velocity = new Vector3(0, 0, 0);
     }
 
     private Vector3 GetMouseAsWorldPoint()
@@ -52,7 +51,7 @@ public class Dragging : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isDragging && rb.position != GetMouseAsWorldPoint() + mOffset)
+        if (isDragging && Vector3.Distance(rb.position, GetMouseAsWorldPoint() + mOffset) > 0.1f)
         {
             rb.velocity =((GetMouseAsWorldPoint() + mOffset)-rb.position).normalized*10;
         }
