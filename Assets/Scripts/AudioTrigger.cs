@@ -37,6 +37,8 @@ public class AudioTrigger : MonoBehaviour
     public List<AudioClip> audioClips;
     [HideInInspector]
     public AudioOrder audioOrder;
+
+    private OpenDoor _openDoor;
     [HideInInspector]
     public bool PlayOneClip = false;
 
@@ -60,6 +62,7 @@ public class AudioTrigger : MonoBehaviour
     AudioListener audioListener;
     public void Awake()
     {
+        _openDoor = FindObjectOfType<OpenDoor>();
         audioListener = FindObjectOfType<AudioListener>();
         if(audioTriggerType == AudioTriggerType.RandomEnviromental)
         {
@@ -158,7 +161,7 @@ public class AudioTrigger : MonoBehaviour
 
     public void UpdateAudio()
     {
-        audioSource.volume = Volume;
+        audioSource.volume = _openDoor.soundVolume;
         audioSource.minDistance = 0;
         audioSource.spatialBlend = SurroundSound ? 1 : 0;
         audioSource.maxDistance = SurroundSound ? Range : 0;

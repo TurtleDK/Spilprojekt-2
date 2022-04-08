@@ -18,7 +18,7 @@ public class OpenDoor : MonoBehaviourPun
     private AudioSource Audio2;
     private RandomColor _randomColor;
 
-    public float soundVolume = 1f;
+    public float soundVolume = 0.5f;
     
     private bool Ran = false;
     private string textField;
