@@ -25,7 +25,7 @@ public class Click : MonoBehaviour
     void Start()
     {
         Text = GameObject.Find("Text1");
-        player = GameObject.Find("FirstPersonPlayer(Clone)");
+        player = GameObject.Find("Player1");
         pos = player.GetComponent<Transform>();
         Texts = Text.GetComponent<TextMeshPro>();
         
